@@ -12,6 +12,6 @@ module.exports = function (content, sourceMap) {
   });
 
   return "module.exports = {\n" + files.map(function (file) {
-    return "  '" + file + "': require(" + JSON.stringify(file) + ")"
+    return "  '" + path.basename(file) + "': require(" + JSON.stringify(file) + ")"
   }).join(",\n") + "\n};"
 };
