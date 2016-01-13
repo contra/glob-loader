@@ -5,7 +5,8 @@ var glob = require("glob");
 var path = require("path");
 
 module.exports = function (content, sourceMap) {
-  // var query = loaderUtils.parseQuery(this.query);
+  this.cacheable();
+
   var resourceDir = path.dirname(this.resourcePath);
   var files = glob.sync(content.trim(), {
     cwd: resourceDir
@@ -13,6 +14,8 @@ module.exports = function (content, sourceMap) {
 
   return "module.exports = {\n" + files.map(function (file) {
     var name = path.basename(file, path.extname(file));
+    this.addDependency(file);
+
     return "  '" + name + "': require(" + JSON.stringify(file) + ")"
-  }).join(",\n") + "\n};"
+  }, this).join(",\n") + "\n};";
 };
