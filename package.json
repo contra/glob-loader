@@ -1,7 +1,7 @@
 {
   "name": "glob-loader",
-  "version": "0.2.0",
-  "description": "webpack loader to load files at once with glob",
+  "version": "2.0.0",
+  "description": "webpack loader to load multiple files at once with glob as an object",
   "main": "index.js",
   "scripts": {
     "pretest": "webpack --config ./test/sample/webpack.config.js",
@@ -18,16 +18,17 @@
   },
   "homepage": "https://github.com/seanchas116/glob-loader#readme",
   "dependencies": {
-    "glob": "^5.0.10",
-    "loader-utils": "^0.2.9"
+    "glob": "^7.1.1",
+    "loader-utils": "^1.1.0"
   },
   "keywords": [
     "webpack",
     "loader",
-    "glob"
+    "glob",
+    "object"
   ],
   "devDependencies": {
-    "tap": "^1.2.0",
-    "webpack": "^1.9.10"
+    "tap": "^10.3.2",
+    "webpack": "^2.4.1"
   }
 }
